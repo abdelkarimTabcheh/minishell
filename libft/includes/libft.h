@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabcheh <atabcheh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abdelkarim-tabcheh <abdelkarim-tabcheh@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:28:31 by atabcheh          #+#    #+#             */
-/*   Updated: 2024/06/25 11:13:12 by atabcheh         ###   ########.fr       */
+/*   Updated: 2024/08/15 18:48:19 by abdelkarim-      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,22 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef enum e_token_type
+{
+    WORD,
+	PIPE,
+	REDIRECTION_IN,
+	REDIRECTION_OUT,
+	REDIRECTION_APPEND,
+	REDIRECTION_HEREDOC,
+	ENVIRONMENT_VARIABLE,
+}   t_token_type;
+
+typedef struct s_node {
+    char    *str;
+    t_token_type    type;
+    struct  s_node  *next;
+}   t_node;
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -31,6 +47,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -51,6 +68,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_add_back(t_node **lst, t_node *new);
+t_node	*ft_new_node(t_token_type type, char *str);
 typedef struct s_list
 {
 	void			*content;

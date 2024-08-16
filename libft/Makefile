@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: atabcheh <atabcheh@student.42.fr>          +#+  +:+       +#+         #
+#    By: abdelkarim-tabcheh <abdelkarim-tabcheh@    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 17:44:57 by atabcheh          #+#    #+#              #
-#    Updated: 2024/07/16 14:33:41 by atabcheh         ###   ########.fr        #
+#    Updated: 2024/08/15 14:40:56 by abdelkarim-      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ LIB_DIR		=			$(SRC_DIR)lib/ft_isalnum.c \
 					$(SRC_DIR)lib/ft_toupper.c \
 					$(SRC_DIR)lib/ft_split.c \
 					$(SRC_DIR)lib/ft_strchr.c \
+					$(SRC_DIR)lib/ft_strcmp.c \
 					$(SRC_DIR)lib/ft_strdup.c \
 					$(SRC_DIR)lib/ft_striteri.c \
 					$(SRC_DIR)lib/ft_strjoin.c \
@@ -60,7 +61,9 @@ LIB_DIR		=			$(SRC_DIR)lib/ft_isalnum.c \
 					$(SRC_DIR)lib/ft_lstlast.c \
 					$(SRC_DIR)lib/ft_lstmap.c \
 					$(SRC_DIR)lib/ft_lstnew.c \
-					$(SRC_DIR)lib/ft_lstsize.c 
+					$(SRC_DIR)lib/ft_lstsize.c \
+					$(SRC_DIR)lib/ft_add_back.c \
+					$(SRC_DIR)lib/ft_new_node.c
 
 FTPRINTF_DIR	=	$(SRC_DIR)ft_printf/ft_printf.c \
 					$(SRC_DIR)ft_printf/ft.c 
