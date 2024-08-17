@@ -10,7 +10,8 @@ SRC_FILES =		$(SRC_DIR)minishell.c \
 				$(TOKENIZATION_DIR)error_handling.c \
 
 CC 				= gcc
-CFLAGS 			= -Wall -Wextra -Werror -Iincludes
+CFLAGS 			= -Wall -Wextra -Werror -Iincludes -lreadline -lncurses	
+
 
 LIB_DIR 			= libft
 

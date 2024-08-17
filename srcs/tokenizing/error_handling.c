@@ -74,7 +74,7 @@ t_node  *find_syntax_error(t_node *node_list)
          !ft_strncmp(current->str, ">", 1) ||
          !ft_strncmp(current->str, ">>", 2))
 		 	if (!current->next || node_list == current)
-                return current;
+                return (current);
 		current = current->next;
 	}
 	return (NULL);
