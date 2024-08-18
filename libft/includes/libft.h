@@ -33,6 +33,14 @@ typedef struct s_node {
     t_token_type    type;
     struct  s_node  *next;
 }   t_node;
+
+typedef struct e_environment
+{
+	char	*key;
+	char	*value;
+	struct e_environment	*next;
+}	t_env;
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -70,6 +78,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_add_back(t_node **lst, t_node *new);
 t_node	*ft_new_node(t_token_type type, char *str);
+t_env	*create_env_node(char **data);
 typedef struct s_list
 {
 	void			*content;

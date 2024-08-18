@@ -8,6 +8,7 @@ SRC_FILES =		$(SRC_DIR)minishell.c \
 				$(TOKENIZATION_DIR)utils.c \
 				$(TOKENIZATION_DIR)tokenizing.c  \
 				$(TOKENIZATION_DIR)error_handling.c \
+				$(wildcard srcs/environment/*.c) \
 
 CC 				= gcc
 CFLAGS 			= -Wall -Wextra -Werror -Iincludes -lreadline -lncurses	

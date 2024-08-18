@@ -17,10 +17,13 @@
 # include <sys/stat.h>
 # include <sys/wait.h>
 
-int     count_tokens(char *str, int *index);
-t_node	*tokenize_user_input(char *str);
-int	    report_syntax_errors(t_node *node_list);
-int     verify_quotes(t_node *node_list);
+int				count_tokens(char *str, int *index);
+t_node			*tokenize_user_input(char *str);
+int				report_syntax_errors(t_node *node_list);
+int				verify_quotes(t_node *node_list);
+void			free_envlist(t_env *head);
+void			free_array(char **data);
+void				ft_error(char *msg);
 typedef enum e_redirection_type {
     UNSET,
     EXEC,
