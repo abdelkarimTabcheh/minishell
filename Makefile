@@ -14,7 +14,7 @@ SRC_FILES =		$(SRC_DIR)minishell.c \
 				$(ENVIRONMENT_DIR)utils_env.c \
 
 CC 				= gcc
-CFLAGS 			= -Wall -Wextra -Werror -Iincludes -lreadline -lncurses	-g
+CFLAGS 			= -Wall -Wextra -Werror -Iincludes -lreadline -lncurses
 
 
 LIB_DIR 			= libft
