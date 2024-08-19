@@ -24,7 +24,6 @@ t_env	*environment(char **env)
 				free_array(env_line);
 				ft_error("error in env list");
 			}
-			printf("%s=%s\n", node->key, node->value);
 			ft_add_env_list(&head, node);
 			free_array(env_line);
 		i++;
