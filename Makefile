@@ -3,15 +3,18 @@ LIB 					= libft.a
 OUT_DIR					= ./
 SRC_DIR					= srcs/
 TOKENIZATION_DIR		= $(SRC_DIR)tokenizing/
+ENVIRONMENT_DIR		= $(SRC_DIR)environment/
 
 SRC_FILES =		$(SRC_DIR)minishell.c \
 				$(TOKENIZATION_DIR)utils.c \
 				$(TOKENIZATION_DIR)tokenizing.c  \
 				$(TOKENIZATION_DIR)error_handling.c \
-				$(wildcard srcs/environment/*.c) \
+				$(ENVIRONMENT_DIR)allocation.c \
+				$(ENVIRONMENT_DIR)environment.c \
+				$(ENVIRONMENT_DIR)utils_env.c \
 
 CC 				= gcc
-CFLAGS 			= -Wall -Wextra -Werror -Iincludes -lreadline -lncurses	
+CFLAGS 			= -Wall -Wextra -Werror -Iincludes -lreadline -lncurses
 
 
 LIB_DIR 			= libft
@@ -32,6 +35,9 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)%.o : $(TOKENIZATION_DIR)%.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)%.o : $(ENVIRONMENT_DIR)%.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIB_DIR)/$(LIB):
