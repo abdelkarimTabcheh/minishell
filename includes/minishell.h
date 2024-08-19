@@ -23,7 +23,8 @@ int				report_syntax_errors(t_node *node_list);
 int				verify_quotes(t_node *node_list);
 void			free_envlist(t_env *head);
 void			free_array(char **data);
-void				ft_error(char *msg);
+void			ft_error(char *msg);
+t_env	        *environment(char **env);
 typedef enum e_redirection_type {
     UNSET,
     EXEC,

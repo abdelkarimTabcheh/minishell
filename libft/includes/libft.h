@@ -79,6 +79,7 @@ void	ft_putnbr_fd(int n, int fd);
 int		ft_add_back(t_node **lst, t_node *new);
 t_node	*ft_new_node(t_token_type type, char *str);
 t_env	*create_env_node(char **data);
+int		ft_add_env_list(t_env **lst, t_env *new);
 typedef struct s_list
 {
 	void			*content;

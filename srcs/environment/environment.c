@@ -14,18 +14,19 @@ t_env	*environment(char **env)
 	head = NULL;
 	while (env[i])
 	{
-		env_line = ft_split(env[i], '=');
-		if (!env_line)
-			return (NULL);
-		node = create_env_node(env_line);
-		if (!node)
-		{
-			free_envlist(head);
+			env_line = ft_split(env[i], '=');
+			if (!env_line)
+				return (NULL);
+			node = create_env_node(env_line);
+			if (!node)
+			{
+				free_envlist(head);
+				free_array(env_line);
+				ft_error("error in env list");
+			}
+			printf("%s=%s\n", node->key, node->value);
+			ft_add_env_list(&head, node);
 			free_array(env_line);
-			ft_error("error in env list");
-		}
-		ft_add_back(&head, node);
-		free_array(env_line);
 		i++;
 	}
 	return (head);

@@ -63,7 +63,9 @@ LIB_DIR		=			$(SRC_DIR)lib/ft_isalnum.c \
 					$(SRC_DIR)lib/ft_lstnew.c \
 					$(SRC_DIR)lib/ft_lstsize.c \
 					$(SRC_DIR)lib/ft_add_back.c \
-					$(SRC_DIR)lib/ft_new_node.c
+					$(SRC_DIR)lib/ft_new_node.c \
+					$(SRC_DIR)lib/ft_creat_env_node.c \
+					$(SRC_DIR)lib/ft_add_env_list.c \
 
 FTPRINTF_DIR	=	$(SRC_DIR)ft_printf/ft_printf.c \
 					$(SRC_DIR)ft_printf/ft.c 
