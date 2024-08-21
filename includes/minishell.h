@@ -42,6 +42,12 @@ typedef struct s_command_node {
     struct s_command_node   *left;      // Pointer to the left child node
     struct s_command_node   *right;     // Pointer to the right child node
 }   t_command_node;
+t_command_node	*init_cmd_node(t_token_type token_type);
+int	            count_arguments(t_node *token_list);
+void	        fill_arguments(t_command_node *command_node, t_node **tokens, int arg_count);
+t_command_node	*parse_redirection_or_command(t_node	**tokens);
+t_command_node	*create_redir_node(t_node *token);
+int	            is_redir(t_token_type token_type);
 
 
 #endif
