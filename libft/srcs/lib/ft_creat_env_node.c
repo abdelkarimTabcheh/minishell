@@ -1,13 +1,29 @@
 #include "../../includes/libft.h"
 #include "../../../includes/minishell.h"
 
+int	count_value(char **data)
+{
+	int i;
+
+	i = 0;
+	while (data[i])
+		i++;
+	return (i);
+}
+
+/*if the variable contain in the value '='
+this function add the '=' to the value*/
 char	*join_free(char *old, char *s1)
 {
 	char	*new;
 	char	*s2;
+	char	*temp;
 
-	s2 = ft_strjoin(old, "=");
+	temp = ft_strdup(old);
+	s2 = ft_strjoin(temp, "=");
 	new = ft_strjoin(s2, s1);
+	free(old);
+	free(temp);
 	free(s2);
 	return (new);
 }
@@ -23,15 +39,17 @@ t_env	*create_env_node(char **data)
 	if (!new_node)
 		return (NULL);
 	new_node->key = ft_strdup(data[0]);
-	if (!data[1] || data[1][0] == '\0')
-		new_node->value = ft_strdup(""); // Assign an empty string
+	if (count_value(data) == 1)
+		new_node->value = ft_strdup("");
+		
 	else
-		new_node->value = ft_strdup(data[1]);
-	while (data[i])
 	{
-		if (data[i] != NULL)
+		new_node->value = ft_strdup(data[1]);
+		while (data[i])
+		{
 			new_node->value = join_free(new_node->value, data[i]);
-		i++;
+			i++;
+		}
 	}
 	if (!new_node->key || !new_node->value)
 	{
