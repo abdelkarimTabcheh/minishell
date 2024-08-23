@@ -47,22 +47,33 @@ int is_stopper(const char *str, int index)
 	Tracks quote states to correctly handle quoted segments.
 	Returns the number of characters processed.
 */
-int process_str_until_stopper(char *str, int *index, int *in_single_quote, int *in_double_quote) 
+int	process_str_until_stopper(char *str, int *index, int *in_sq, int *in_dq)
 {
-    int count;
-    
-    count = 0;
-    while (str[*index]) {
-        if (str[*index] == '\'' && *in_double_quote == 0)
-            *in_single_quote = (*in_single_quote == 0) ? 1 : 0;
-        else if (str[*index] == '\"' && *in_single_quote == 0)
-            *in_double_quote = (*in_double_quote == 0) ? 1 : 0;
-        if (is_stopper(str, *index) && *in_single_quote == 0 && *in_double_quote == 0)
-            return (count);
-        (*index)++;
-        count++;
-    }
-    return (count);
+	int	count;
+
+	count = 0;
+	while (str[*index])
+	{
+		if (str[*index] == '\'' && *in_dq == 0)
+		{
+			if (*in_sq == 0)
+				*in_sq = 1;
+			else
+				*in_sq = 0;
+		}
+		else if (str[*index] == '\"' && *in_sq == 0)
+		{
+			if (*in_dq == 0)
+				*in_dq = 1;
+			else
+				*in_dq = 0;
+		}
+		if (is_stopper(str, *index) && *in_sq == 0 && *in_dq == 0)
+			return (count);
+		(*index)++;
+		count++;
+	}
+	return (count);
 }
 
 /*

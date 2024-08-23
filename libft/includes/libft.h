@@ -6,7 +6,7 @@
 /*   By: abdelkarim-tabcheh <abdelkarim-tabcheh@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:28:31 by atabcheh          #+#    #+#             */
-/*   Updated: 2024/08/15 18:48:19 by abdelkarim-      ###   ########.fr       */
+/*   Updated: 2024/08/23 14:22:48 by abdelkarim-      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ typedef struct s_node {
     struct  s_node  *next;
 }   t_node;
 
-typedef struct e_environment
+typedef struct s_env
 {
-	char	*key;
-	char	*value;
-	struct e_environment	*next;
+	char			*key;
+	char			*value;
+	struct s_env	*next;
 }	t_env;
 
 int		ft_isalpha(int c);

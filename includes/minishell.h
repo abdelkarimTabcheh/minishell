@@ -36,12 +36,20 @@ typedef enum e_redirection_type {
 }   t_redirection_type;
 
 typedef struct s_command_node {
-    t_token_type        token_type;           // The type of token (e.g., WORD, PIPE, REDIRECTION)
-    t_redirection_type  redir_type;     // The type of redirection, if applicable(e.g., INPUT, OUTPUT)
-    char                **arguments;        // Arguments (command) strings
+    t_token_type            token_type;           // The type of token (e.g., WORD, PIPE, REDIRECTION)
+    t_redirection_type      redir_type;     // The type of redirection, if applicable(e.g., INPUT, OUTPUT)
+    char                    **arguments;        // Arguments (command) strings
     struct s_command_node   *left;      // Pointer to the left child node
     struct s_command_node   *right;     // Pointer to the right child node
 }   t_command_node;
+
+// Structure representing the shell environment, including environment variables and other states.
+typedef struct s_shell_env {
+	t_env   			*vars;		// Pointer to the head of the linked list of environment variables.
+	t_command_node		*tree;		// Pointer to the root of the command tree (AST) used for parsing commands.
+	int					exit_code;	// Exit code of the last executed command.
+}	t_shell_env;
+
 t_command_node	*init_cmd_node(t_token_type token_type);
 int	            count_arguments(t_node *token_list);
 void	        fill_arguments(t_command_node *command_node, t_node **tokens, int arg_count);

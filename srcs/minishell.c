@@ -1,13 +1,13 @@
 #include "../includes/minishell.h"
-
+/*
 void    run_minishell(char *input_str, t_env *env,
             t_node  *tokens, t_command_node *cmds)
 {
     input_str = readline("Minishell > ");
     if (!input_str)
-        
-}
 
+}
+*/
  int main(int ac, char **av, char **env)
 {
     /*

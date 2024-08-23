@@ -2,6 +2,6 @@
 
 void	ft_error(char *msg)
 {
-	perror(msg);
-	exit(1);
+    perror(msg);
+    exit(EXIT_FAILURE);
 }
